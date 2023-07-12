@@ -46,7 +46,8 @@ $(document).ready(function () {
 dataShapes.push(shape);
 
   // TODO 2: add a new property to all data shapes
-  for (var currentShape = [0]; i < dataShapes.length; currentShape++){
+  for (var i = [0]; i < dataShapes.length; i++){
+    var currentShape = dataShapes[i];
     if (currentShape.color === "red"){
       currentShape.goodBehavior = "bounce";
     }
@@ -71,7 +72,7 @@ dataShapes.push(shape);
 
   // TODO 5-a: add a function that handles the bad display type
   function handleBad(data, repeat){
-    repeat.push(3);
+    var repeat = 4
     setBackgroundWithMixed(data, repeat);
     animationDetails.displayType =3;
   }

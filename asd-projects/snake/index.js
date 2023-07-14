@@ -90,10 +90,10 @@ function moveSnake() {
   for (var i = snake.body.length - 1; i > 0; i-- ) {
     var snakeSquare = snake.body[i];
     
-    var nextSnakeSquare = snakeSquare.push(i);
-    var nextRow = "???";
-    var nextColumn = "???";
-    var nextDirection = "???";
+    var nextSnakeSquare = snake.body[i-1];
+    var nextRow = snake.body[i + 1];
+    var nextColumn = snake.body[i + 1];
+    var nextDirection = snake.body[i-1];
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -337,7 +337,9 @@ function getRandomAvailablePosition() {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
-      if(randomPosition.column === snakeSquare.column || randomPosition.row === snakeSquare.row){
+  }
+    for(p = 0; p < snake.body.length; p++){
+      if(randomPosition.column === snake.body[p] && randomPosition.row === snake.body[p])
         spaceIsAvailable = false;
       }
     
@@ -346,7 +348,7 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
-  }
+  
   
   return randomPosition;
 }

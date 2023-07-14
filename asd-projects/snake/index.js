@@ -115,13 +115,13 @@ function moveSnake() {
     snake.head.column = snake.head.column - 1;
   }
   else if (snake.head.direction === "up"){
-    snake.head.row = snake.head.row + 1;
+    snake.head.row = snake.head.row - 1;
     }
   else if (snake.head.direction === "right"){
     snake.head.column = snake.head.column + 1;
   }
   else if (snake.head.direction === "down"){
-    snake.head.row = snake.head.row - 1;
+    snake.head.row = snake.head.row + 1;
   }
   repositionSquare(snake.head);
   
@@ -214,7 +214,7 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
    */
   for(q = 1; q < snake.body.length; q++){
-  if(snake.head.row === snake.body.row || snake.head.column === snake.body.column){
+  if(snake.head.row === snake.body[q].row && snake.head.column === snake.body[q].column){
     return true;
   }
 } 

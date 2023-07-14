@@ -227,16 +227,16 @@ function hasHitWall() {
   board, false otherwise.
    HINT: What will the row and column of the snake's head be if this were the case?
   */
-  if(snake.head.row === 0){
+  if(snake.head.row < 0){
     return true;
   }
-  else if(snake.head.row >= ROWS){
+  else if(snake.head.row > ROWS){
     return true;
     }
-  else if(snake.head.column === 0){
+  else if(snake.head.column < 0){
     return true;
   }
-  else if(snake.head.column >= COLUMNS){
+  else if(snake.head.column > COLUMNS){
     return true;
   }
   else{  

@@ -115,13 +115,13 @@ function moveSnake() {
     snake.head.column = snake.head.column - 1;
   }
   else if (snake.head.direction === "up"){
-    snake.head.column = snake.head.column + 1;
+    snake.head.row = snake.head.row + 1;
     }
   else if (snake.head.direction === "right"){
     snake.head.column = snake.head.column + 1;
   }
   else if (snake.head.direction === "down"){
-    snake.head.column = snake.head.column - 1;
+    snake.head.row = snake.head.row - 1;
   }
   repositionSquare(snake.head);
   
@@ -213,13 +213,14 @@ function hasCollidedWithSnake() {
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
    */
-  if(snake.head.row === snakeSquare.row || snake.head.column === snakeSquare.column){
+  for(q = 1; q < snake.body.length; q++){
+  if(snake.head.row === snake.body.row || snake.head.column === snake.body.column){
     return true;
   }
-  else{
+} 
   return false
   }
-}
+
 function hasHitWall() {
   /* 
   TODO 7: Should return true if the snake's head has collided with the four walls of the
@@ -381,3 +382,4 @@ function calculateHighScore() {
   
   return highScore;
 }
+

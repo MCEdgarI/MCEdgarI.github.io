@@ -91,9 +91,9 @@ function moveSnake() {
     var snakeSquare = snake.body[i];
     
     var nextSnakeSquare = snake.body[i-1];
-    var nextRow = snake.body[i + 1];
-    var nextColumn = snake.body[i + 1];
-    var nextDirection = snake.body[i-1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -337,12 +337,11 @@ function getRandomAvailablePosition() {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
-  }
-    for(p = 0; p < snake.body.length; p++){
-      if(randomPosition.column === snake.body[p] && randomPosition.row === snake.body[p])
+      for(p = 0; p < snake.body.length; p++){
+      if(randomPosition.column === snake.body[p].column && randomPosition.row === snake.body[p].row){
         spaceIsAvailable = false;
       }
-    
+      }
     /*
     TODO 13: After generating the random position determine if that position is
     not occupied by a snakeSquare in the snake's body. If it is then set 
@@ -352,7 +351,7 @@ function getRandomAvailablePosition() {
   
   return randomPosition;
 }
-
+}
 /* 
   event.which returns the keycode of the key that is pressed when the
   keydown event occurs

@@ -60,7 +60,7 @@ function applyFilterNoBackground(filterFunction){
     for (var c = 0; c < image[r].length; c++) {
         var rgbString = image[r][c];
       if (!rgbString === bcolor){
-        applyFilter()
+        applyFilterNoBackground();
                       
         var rgbNumbers = rgbStringToArray(rgbString);
           filterFunction(rgbNumbers);
@@ -87,7 +87,7 @@ function decreaseBlue(blueArray){
     blueArray[BLUE] = keepInBounds(blueArray[BLUE] - 50);
 }
 function increaseGreenByBlue(greenArray){
-  greenArray[GREEN] = keepInBounds(greenArray[GREEN] + blueArray[BLUE]);
+  greenArray[GREEN] = keepInBounds(greenArray[GREEN] + greenArray[BLUE]);
 
 }
 

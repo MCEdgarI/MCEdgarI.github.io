@@ -18,11 +18,13 @@ function runProgram(){
     "RIGHT" : 39,
     "DOWN" : 40,
   }
-  var positionX = 0;
-  var speedX = 0;
-  var positionY = 0;
-  var speedY = 0;
-   			
+  var walker = {
+    positionX: 0,
+    positionY: 0,
+    speedX: 0,
+    speedY: 0,
+  };
+
   // Game Item Objects
 
 
@@ -52,20 +54,40 @@ function runProgram(){
 //press the up key --> accelerate the box in negative Y direction
 //press the down key --> accelerate the box in the positive Y direction
 //and so on for left (-x) and right (+x)
-changeSpeedX(-5, event.which, KEY.LEFT);
-changeSpeedX(5, event.which, KEY.RIGHT);
-changeSpeedY(-5, event.which, KEY.UP);
-changeSpeedY(5, event.which, KEY.DOWN);
+console.log(event.which);
+if (event.which === KEY.LEFT) {
+  console.log("left pressed");
+}
+if (event.which === KEY.RIGHT) {
+  console.log("right pressed");
+}
+if (event.which === KEY.UP) {
+  console.log("up pressed");
+}
+if (event.which === KEY.DOWN) {
+  console.log("down pressed");
+}
+
+
+
 }
 
   
-function handleKeyUp(event) {
-changeSpeedX(0, event.which, KEY.LEFT);
-changeSpeedX(0, event.which, KEY.RIGHT);
-changeSpeedY(0, event.which, KEY.UP);
-changeSpeedY(0, event.which, KEY.DOWN);
-  
+function handleKeyDown(event) {
+  if (event.which === KEY.LEFT) {
+    walker.speedX = -5;
   }
+  if (event.which === KEY.RIGHT) {
+    walker.speedX = 5;
+  }
+  if (event.which === KEY.UP) {
+    walker.speedY = -5;
+  }
+  if (event.which === KEY.DOWN) {
+    walker.speedY = 5;
+  }
+}
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////

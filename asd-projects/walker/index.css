@@ -1,6 +1,6 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(247, 87, 62);
 }
 
 #board {
@@ -11,13 +11,24 @@ body {
   position: relative;
 }
 
-#walker {
+#walker1 {
   background-color: teal;
   width: 50px;
   height: 50px;
   position: absolute;
   border-radius: 50px;
+  left: 100px; 
+  top: 100px;
+
 
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+}
+#walker2 {
+  background-color: teal;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 100px; 
+  top: 100px; 
 }
